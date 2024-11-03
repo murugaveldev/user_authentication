@@ -12,7 +12,7 @@ const AdminPage = () => {
                 const token = sessionStorage.getItem('token'); // Get the token from session storage
                 // console.log("Token:", token); 
 
-                const { data } = await axios.get('http://localhost:8000/api/v1/user', {
+                const { data } = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/v1/user`, {
                     headers: {
                         Authorization: `Bearer ${token}`, // Include token in the Authorization header
                     },

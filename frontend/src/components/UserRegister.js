@@ -15,7 +15,7 @@ const UserRegister = () => {
         console.log({ username, email, password, role });
 
         try {
-            const register = await axios.post('http://localhost:8000/api/v1/register', { username, email, password, role });
+            const register = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/v1/register`, { username, email, password, role });
             if (register.status === 200) { // Check for 201 Created status
                 alert("User registered successfully!");
                 navigate('/login-user');

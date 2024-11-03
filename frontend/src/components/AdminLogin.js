@@ -7,11 +7,11 @@ const AdminLogin = () => {
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
-    const handleLogin = async (e) => { 
+    const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const { data } = await axios.post('http://localhost:8000/api/v1/login', { email, password });
-            
+            const { data } = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/v1/login`, { email, password });
+
             // Store token in session storage
             sessionStorage.setItem('token', data.token);
 
